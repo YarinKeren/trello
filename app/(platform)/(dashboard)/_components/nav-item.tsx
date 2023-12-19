@@ -7,6 +7,7 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/
 import Image from 'next/image'
 import { Activity, CreditCard, Layout, Settings } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export type Organization = {
   id: string
@@ -82,5 +83,16 @@ export default function NavItem({ isExpanded, isActive, organization, onExpand }
         ))}
       </AccordionContent>
     </AccordionItem>
+  )
+}
+
+NavItem.Skeleton = function NavItemSkeleton() {
+  return (
+    <div className='flex items-center gap-x-2'>
+      <div className='w-10 h-10 relative shrink-0'>
+        <Skeleton className='h-full w-full absolute' />
+      </div>
+      <Skeleton className='h-10 w-full' />
+    </div>
   )
 }
